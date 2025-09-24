@@ -26,6 +26,8 @@ const I18N = {
     'why.item4': 'სწრაფი და სტაბილური MVP-ების მიწოდება',
     'why.item5': 'კოლაბორაციული მუშაობა Git / Agile პროცესში',
     'contact.title': 'კონტაქტი',
+    'hero.cta.projects': 'პროექტები',
+    'hero.cta.contact': 'დამიკავშირდი',
     'footer.rights': 'ყველა უფლება დაცულია.'
   },
   en: {
@@ -47,6 +49,8 @@ const I18N = {
     'why.item4': 'Fast & stable MVP delivery',
     'why.item5': 'Collaborative within Git / Agile workflows',
     'contact.title': 'Contact',
+    'hero.cta.projects': 'Projects',
+    'hero.cta.contact': 'Contact Me',
     'footer.rights': 'All rights reserved.'
   }
 };
