@@ -75,19 +75,6 @@ const PROJECTS = [
     screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://mycaucasus.vercel.app/'
   },
   {
-    title: 'Personal Portfolio',
-    year: 2025,
-    type: 'Showcase',
-    status: 'დასრულებულია',
-    status_en: 'Completed',
-    description: 'ვებ პორტფოლიო, ხელით აწყობილი სუფთა HTML/CSS/Vanilla JS სტეკზე: თემის ცვლა (dark/light), მრავალენოვანი (KA/EN) ინტერფეისი, დინამიური პროექტების რენდერი, IntersectionObserver ანიმაციები და lazy‑loaded ფოტოები. ფოკუსი: მინიმალიზმი, წარმადობა და გაფართოებადობა.',
-    description_en: 'Hand‑crafted web portfolio built with pure HTML/CSS/Vanilla JS: theme toggle (dark/light), bilingual (KA/EN) interface, dynamic project rendering, IntersectionObserver reveal animations and lazy‑loaded thumbnails. Focus: minimalism, performance and extensibility.',
-    stack: ['HTML','CSS','Vanilla JS','i18n','Accessibility'],
-    live: '#',
-    repo: 'https://github.com/lipo541/portfolio',
-    screenshot: ''
-  },
-  {
     title: 'xcaucasus',
     year: 2025,
     type: 'Production',
@@ -149,6 +136,19 @@ const PROJECTS = [
     live: '#',
     repo: '#',
     screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://example.com/'
+  }
+  ,{
+    title: 'Personal Portfolio',
+    year: 2025,
+    type: 'Showcase',
+    status: 'დასრულებულია',
+    status_en: 'Completed',
+    description: 'ვებ პორტფოლიო, ხელით აწყობილი სუფთა HTML/CSS/Vanilla JS სტეკზე: თემის ცვლა (dark/light), მრავალენოვანი (KA/EN) ინტერფეისი, დინამიური პროექტების რენდერი, IntersectionObserver ანიმაციები და lazy‑loaded ფოტოები. ფოკუსი: მინიმალიზმი, წარმადობა და გაფართოებადობა.',
+    description_en: 'Hand‑crafted web portfolio built with pure HTML/CSS/Vanilla JS: theme toggle (dark/light), bilingual (KA/EN) interface, dynamic project rendering, IntersectionObserver reveal animations and lazy‑loaded thumbnails. Focus: minimalism, performance and extensibility.',
+    stack: ['HTML','CSS','Vanilla JS','i18n','Accessibility'],
+    live: '#',
+    repo: 'https://github.com/lipo541/portfolio',
+    screenshot: ''
   }
 ];
 
