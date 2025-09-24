@@ -72,7 +72,8 @@ const PROJECTS = [
     stack: ['Next.js 15','React','TypeScript','Supabase','Auth','CI/CD'],
     live: 'https://mycaucasus.vercel.app/',
     repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://mycaucasus.vercel.app/'
+    // Added delay to improve chance header assets load; nocache to avoid stale blank capture
+    screenshot: 'https://image.thum.io/get/width/900/crop/1200/delay/2/nocache/https://mycaucasus.vercel.app/'
   },
   {
     title: 'xcaucasus',
@@ -98,7 +99,7 @@ const PROJECTS = [
     stack: ['Next.js','React','TypeScript','Static Export','SEO','Image Optimization'],
     live: 'https://video360photo.ge/',
     repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://video360photo.ge/'
+    screenshot: 'https://image.thum.io/get/width/900/crop/1200/delay/2/nocache/https://video360photo.ge/'
   },
   {
     title: 'projextx',
@@ -169,7 +170,7 @@ function createProjectCard(p) {
     ${p.screenshot ? `
     <div class="project-thumb">
       <div class="thumb-skeleton" aria-hidden="true"></div>
-      <img class="thumb-img lazy-img" data-src="${p.screenshot}" alt="${p.title} screenshot" decoding="async" loading="lazy" />
+      <img class="thumb-img lazy-img" data-src="${p.screenshot}" data-alt-src="${p.live ? `https://s0.wordpress.com/mshots/v1/${encodeURIComponent(p.live)}?w=900` : ''}" alt="${p.title} screenshot" decoding="async" loading="lazy" />
     </div>` : ''}
     <div class="project-meta">${p.year} · ${p.type} ${statusBadge}</div>
     <h3>${p.title}</h3>
@@ -187,6 +188,8 @@ function renderProjects() {
   if (!els.projectsGrid) return;
   els.projectsGrid.innerHTML = '';
   PROJECTS.forEach(p => els.projectsGrid.appendChild(createProjectCard(p)));
+  // Re-initialize lazy loader & attach fallback after DOM injection
+  initThumbLazyLoad();
 }
 
 // Theme handling
@@ -321,12 +324,48 @@ function initThumbLazyLoad(){
         const img = entry.target;
         const src = img.getAttribute('data-src');
         if(src){
-          img.src = src;
-          img.addEventListener('load', () => {
+          let settled = false;
+          const clearSkeleton = () => {
+            if(settled) return; settled = true;
             img.classList.add('loaded');
             const skel = img.previousElementSibling;
             if(skel && skel.classList.contains('thumb-skeleton')) skel.remove();
+          };
+          const applySvgFallback = () => {
+            if(settled) return; settled = true;
+            const fallbackSvg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='900' height='560' viewBox='0 0 900 560' role='img' aria-label='No screenshot'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23333'/><stop offset='100%' stop-color='%23111'/></linearGradient></defs><rect width='900' height='560' fill='url(%23g)'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, sans-serif' font-size='30' fill='%23aaa'>No Preview</text></svg>`);
+            img.src = `data:image/svg+xml,${fallbackSvg}`;
+            img.style.objectFit = 'contain';
+            img.style.background = 'var(--surface-2)';
+            clearSkeleton();
+          };
+          const altSrc = img.getAttribute('data-alt-src');
+          const timeoutId = setTimeout(() => {
+            // If still not loaded after 6s, try alt provider then fallback
+            if(settled) return;
+            if(altSrc){
+              const testImg = new Image();
+              testImg.onload = () => { if(!settled){ img.src = altSrc; clearSkeleton(); } };
+              testImg.onerror = applySvgFallback;
+              testImg.src = altSrc;
+            } else {
+              applySvgFallback();
+            }
+          }, 6000);
+          img.addEventListener('load', () => { clearTimeout(timeoutId); clearSkeleton(); }, { once: true });
+          img.addEventListener('error', () => {
+            clearTimeout(timeoutId);
+            if(altSrc && !settled){
+              const testImg = new Image();
+              testImg.onload = () => { if(!settled){ img.src = altSrc; clearSkeleton(); } };
+              testImg.onerror = applySvgFallback;
+              testImg.src = altSrc;
+            } else {
+              applySvgFallback();
+            }
           }, { once: true });
+          // Kick off primary load last
+          img.src = src;
           img.removeAttribute('data-src');
         }
         obs.unobserve(img);

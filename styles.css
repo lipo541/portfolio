@@ -247,7 +247,7 @@ img, svg { display: block; max-width: 100%; }
 .light-theme .project-thumb { background: #f1f5f9; border-color: #d7dee6; }
 .project-thumb .thumb-skeleton { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.02) 60%); background-size: 200% 100%; animation: shimmer 2.2s linear infinite; }
 @keyframes shimmer { to { background-position: -200% 0; } }
-.project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.02); opacity: 0; transition: opacity .5s ease; }
+.project-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; filter: saturate(1.02); opacity: 0; transition: opacity .5s ease; }
 .project-thumb img.loaded { opacity: 1; }
 .project-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55)); opacity: 0; transition: var(--transition); }
 .project-card:hover .project-thumb::after { opacity: 1; }
