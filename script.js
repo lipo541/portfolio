@@ -72,8 +72,7 @@ const PROJECTS = [
     stack: ['Next.js 15','React','TypeScript','Supabase','Auth','CI/CD'],
     live: 'https://mycaucasus.vercel.app/',
     repo: '#',
-    // Added delay to improve chance header assets load; nocache to avoid stale blank capture
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/delay/2/nocache/https://mycaucasus.vercel.app/'
+    screenshot: 'assets/screenshots/mycaucasus.png'
   },
   {
     title: 'xcaucasus',
@@ -86,7 +85,7 @@ const PROJECTS = [
     stack: ['WordPress','PHP','SEO','Optimization','Multilingual'],
     live: 'https://xcaucasus.ge/',
     repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://xcaucasus.ge/'
+    screenshot: 'assets/screenshots/xcaucasus.png'
   },
   {
     title: 'video360photo',
@@ -99,7 +98,7 @@ const PROJECTS = [
     stack: ['Next.js','React','TypeScript','Static Export','SEO','Image Optimization'],
     live: 'https://video360photo.ge/',
     repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/delay/2/nocache/https://video360photo.ge/'
+    screenshot: 'assets/screenshots/video360photo.png'
   },
   {
     title: 'projextx',
@@ -112,7 +111,7 @@ const PROJECTS = [
     stack: ['Next.js','React','TypeScript','State Mgmt','UI Components'],
     live: 'https://projextx.vercel.app/',
     repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://projextx.vercel.app/'
+    screenshot: 'assets/screenshots/ecomerce.png'
   },
   {
     title: 'Plan My Trip (pmt.ge)',
@@ -125,7 +124,7 @@ const PROJECTS = [
     stack: ['i18n','Auth','Trip Planner','Tours','Profiles','Newsletter','SEO'],
     live: 'https://pmt.ge/',
     repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://pmt.ge/'
+    screenshot: 'assets/screenshots/pmt.png'
   },
   {
     title: 'Coming Soon Project',
@@ -170,7 +169,7 @@ function createProjectCard(p) {
     ${p.screenshot ? `
     <div class="project-thumb">
       <div class="thumb-skeleton" aria-hidden="true"></div>
-      <img class="thumb-img lazy-img" data-src="${p.screenshot}" data-alt-src="${p.live ? `https://s0.wordpress.com/mshots/v1/${encodeURIComponent(p.live)}?w=900` : ''}" alt="${p.title} screenshot" decoding="async" loading="lazy" />
+      <img class="thumb-img lazy-img" data-src="${p.screenshot}" alt="${p.title} screenshot" decoding="async" loading="lazy" />
     </div>` : ''}
     <div class="project-meta">${p.year} · ${p.type} ${statusBadge}</div>
     <h3>${p.title}</h3>
