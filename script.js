@@ -75,7 +75,7 @@ const PROJECTS = [
     screenshot: 'assets/screenshots/mycaucasus.png'
   },
   {
-    title: 'xcaucasus',
+    title: 'xcaucasus (xcaucasus.ge)',
     year: 2025,
     type: 'Production',
     status: 'დასრულებულია',
@@ -88,7 +88,7 @@ const PROJECTS = [
     screenshot: 'assets/screenshots/xcaucasus.png'
   },
   {
-    title: 'video360photo',
+    title: 'photo video booth (video360photo.ge)',
     year: 2025,
     type: 'Production',
     status: 'დასრულებულია',
