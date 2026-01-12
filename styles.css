@@ -257,7 +257,35 @@ img, svg { display: block; max-width: 100%; }
 .status-badge[data-status*='პროცეს'] { color: #fbbf24; }
 @keyframes pulseDot { 0%,100% { transform: scale(.9); opacity: .6; } 50% { transform: scale(1.25); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .status-badge::before { animation: none; } }
-.project-desc { margin: 0; font-size: .83rem; line-height: 1.4; color: var(--text-dim); }
+.project-desc-wrapper { margin-bottom: .5rem; }
+.project-desc { margin: 0; font-size: .83rem; line-height: 1.5; color: var(--text-dim); }
+.read-more-btn { 
+  background: none; 
+  border: none; 
+  color: var(--accent); 
+  font-size: .75rem; 
+  font-weight: 600; 
+  cursor: pointer; 
+  padding: .3rem 0; 
+  margin-top: .3rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+.read-more-btn:hover { 
+  color: var(--accent-alt); 
+  text-decoration: underline; 
+}
+.read-more-btn::after {
+  content: '→';
+  transition: transform var(--transition);
+}
+.read-more-btn[data-expanded="true"]::after {
+  content: '↑';
+}
+.light-theme .read-more-btn { color: var(--accent); }
+.light-theme .read-more-btn:hover { color: var(--accent-alt); }
 .project-tags { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; margin: .2rem 0 0; padding: 0; }
 .project-tags li { font-size: .65rem; padding: .35rem .55rem; background: #24303b; border-radius: 40px; letter-spacing: .5px; border: 1px solid #2f3a46; color: var(--text-dim); }
 .light-theme .project-tags li { background: #eef2f6; border-color: #d4dce6; color: #556270; }

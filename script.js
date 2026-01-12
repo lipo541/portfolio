@@ -1,4 +1,4 @@
-/* =============================
+﻿/* =============================
    Portfolio Interactive Script
    - Theme toggle with localStorage
    - Mobile navigation toggle
@@ -15,7 +15,7 @@ const I18N = {
     'nav.contact': 'კონტაქტი',
     'hero.title': 'Full Stack Web Developer <span class="accent-divider">|</span> React & Next.js Specialist',
     'hero.tagline': 'ვქმნი სწრაფ, მასშტაბირებად და მომხმარებელზე ორიენტირებულ ვებ-აპლიკაციებს.',
-    'hero.intro': 'მაქვს 5-წლიანი გამოცდილება თანამედროვე ვებ-აპლიკაციების შექმნაში, UI/UX დიზაინის ზუსტ იმპლემენტაციასა და გუნდურ გარემოში მუშაობაში. ვმუშაობ როგორც ფრონტენდზე (React, Next.js, TypeScript), ისე ბექენდზე (Node.js, Supabase, RESTful APIs). ჩემი მთავარი მიზანია სწრაფი, უსაფრთხო და მომხმარებელზე ორიენტირებული MVP-ების შექმნა. დამატებით, xcaucasus პროექტის ფარგლებში, მივიღე მცირე, მაგრამ პრაქტიკული გამოცდილება WordPress-ის მიმართულებითაც (თემების ოპტიმიზაცია, წარმადობა, SEO სტრუქტურა).',
+    'hero.intro': 'მაქვს 5-წლიანი გამოცდილება თანამედროვე ვებ-აპლიკაციების შექმნაში, UI/UX დიზაინის ზუსტ იმპლემენტაციასა და გუნდურ გარემოში მუშაობაში. ვმუშაობ როგორც ფრონტენდზე (React, Next.js, TypeScript), ისე ბექენდზე (Node.js, PostgreSQL, RESTful APIs). ჩემი მთავარი მიზანია სწრაფი, უსაფრთხო და მომხმარებელზე ორიენტირებული MVP-ების შექმნა. დამატებით, xcaucasus პროექტის ფარგლებში, მივიღე მცირე, მაგრამ პრაქტიკული გამოცდილება WordPress-ის მიმართულებითაც (თემების ოპტიმიზაცია, წარმადობა, SEO სტრუქტურა).',
     'skills.title': 'უნარები',
     'projects.title': 'პროექტები',
     'projects.desc': 'ქვემოთ ჩამოთვლილია რამდენიმე ძირითადი პროექტი. მოგვიანებით დავამატებთ სრულ ჩამონათვალს.',
@@ -38,7 +38,7 @@ const I18N = {
     'nav.contact': 'Contact',
     'hero.title': 'Full Stack Web Developer <span class="accent-divider">|</span> React & Next.js Specialist',
     'hero.tagline': 'I build fast, scalable and user‑centric web applications.',
-    'hero.intro': 'I have 5 years of experience building modern web applications, implementing precise UI/UX and collaborating in engineering teams. I work across frontend (React, Next.js, TypeScript) and backend (Node.js, Supabase, RESTful APIs). My core focus is delivering fast, secure and user‑oriented MVPs. Additionally, through the xcaucasus project I gained hands‑on WordPress experience (theme optimization, performance, SEO structure).',
+    'hero.intro': 'I have 5 years of experience building modern web applications, implementing precise UI/UX and collaborating in engineering teams. I work across frontend (React, Next.js, TypeScript) and backend (Node.js, PostgreSQL, RESTful APIs). My core focus is delivering fast, secure and user‑oriented MVPs. Additionally, through the xcaucasus project I gained hands‑on WordPress experience (theme optimization, performance, SEO structure).',
     'skills.title': 'Skills',
     'projects.title': 'Projects',
     'projects.desc': 'A selection of key projects is listed below. A full list will be added later.',
@@ -66,17 +66,43 @@ let currentLang = loadLang();
 // Localized projects (store Georgian as base and provide English alt fields)
 const PROJECTS = [
   {
-    title: 'mycaucasus',
+    title: 'legal.ge',
+    year: 2026,
+    type: 'Production',
+    status: 'მიმდინარე',
+    status_en: 'In Progress',
+    description: 'Legal Sandbox Georgia - ინოვაციური იურიდიული სერვისების პლატფორმა საქართველოში. პლატფორმა აერთიანებს 33+ იურიდიულ პრაქტიკას და 400+ სერვისს, მათ შორის: სანქციების კომპლაიენსი, LegalLaunch სტარტაპებისთვის, საბანკო და საფინანსო სამართალი, ინტელექტუალური საკუთრება. მოიცავს იურისტებისა და ადვოკატების პროფილებს, იურიდიული კომპანიების კატალოგს, სიახლეებისა და ბლოგის სექციას. მრავალენოვანი პლატფორმა (KA/EN) აგებული Next.js, React, TypeScript და PostgreSQL ტექნოლოგიებზე.',
+    description_en: 'Legal Sandbox Georgia - innovative legal services platform in Georgia. The platform unites 33+ legal practices and 400+ services, including: sanctions compliance, LegalLaunch for startups, banking and finance law, intellectual property. Features lawyer and attorney profiles, legal companies catalog, news and blog sections. Multilingual platform (KA/EN) built on Next.js, React, TypeScript and PostgreSQL technologies.',
+    stack: ['Next.js 15','React','TypeScript','SQL','i18n','Auth','SEO','Analytics'],
+    live: 'https://legal.ge/',
+    repo: '#',
+    screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Flegal.ge?w=900&h=560'
+  },
+  {
+    title: 'xparagliding.com',
     year: 2025,
     type: 'Production',
-    status: 'დამზადების პროცესშია',
+    status: 'მიმდინარე',
     status_en: 'In Progress',
-    description: 'პარაპლანის ეკოსისტემისთვის შექმნილი მასშტაბირებადი Next.js 15 პლატფორმა, რომელიც მოიცავს: პილოტების მართვას, ავტორიზაციასა და როლებს, სუპერადმინის პანელს, რეალურ დროში მონაცემების დამუშავებასა და Supabase ინტეგრაციას. პროექტი ფოკუსირებულია დეტალურ UI/UX-სა და მაღალ წარმადობაზე.',
-    description_en: 'Scalable Next.js 15 platform for a paragliding ecosystem: pilot management, auth & roles, super admin panel, real‑time data handling and Supabase integration. Focus on detailed UI/UX and high performance.',
-    stack: ['Next.js 15','React','TypeScript','Supabase','Auth','CI/CD'],
-    live: 'https://mycaucasus.vercel.app/',
+    description: 'პარაგლაიდინგის ინდუსტრიისთვის საქართველოში შექმნილი ციფრული პლატფორმა. პროექტის მიზანია მთელი სფეროს ციფრული ტრანსფორმაცია - ონლაინ ჯავშნების სისტემიდან გლობალურ ინტეგრაციამდე. პლატფორმა მოიცავს: ფრენის ლოკაციების ინფორმაციას (გუდაური, მესტია, თბილისი, ანანური, რუსთავი), მრავალენოვან მხარდაჭერას (6 ენა: KA, EN, RU, DE, TR, AR), პრომო კოდების სისტემას, SuperAdmin პანელს კონტენტის მართვისთვის, პილოტების, კომპანიებისა და ოპერატორების ციფრულ პროფილებს, ავტომატიზირებულ ჯავშნების მართვას, რეალურ დროში ხელმისაწვდომობის ტრექინგს და ანალიტიკას. Next.js 15, React, TypeScript და PostgreSQL ტექნოლოგიებზე აგებული სრული Full-Stack გადაწყვეტა.',
+    description_en: 'Digital platform for the paragliding industry in Georgia. The goal is complete digital transformation of the sector - from online booking to global integration. The platform includes: flight location information (Gudauri, Mestia, Tbilisi, Ananuri, Rustavi), multilingual support (6 languages: KA, EN, RU, DE, TR, AR), promo code system, SuperAdmin panel for content management, digital profiles for pilots, companies and operators, automated booking management, real-time availability tracking and analytics. Complete Full-Stack solution built on Next.js 15, React, TypeScript and PostgreSQL technologies.',
+    stack: ['Next.js 15','React','TypeScript','SQL','i18n','Auth','CI/CD','Analytics'],
+    live: 'https://xparagliding.com/',
     repo: '#',
-    screenshot: 'assets/screenshots/mycaucasus.png'
+    screenshot: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fxparagliding.com?w=900&h=560'
+  },
+  {
+    title: 'Plan My Trip (pmt.ge)',
+    year: 2025,
+    type: 'Platform',
+    status: 'დასრულებულია',
+    status_en: 'Completed',
+    description: 'მრავალენოვანი პლატფორმა მოგზაურობის დასაგეგმად, რომელიც მომხმარებელს სთავაზობს: აქტივობებისა და ტურების ძიებას, „საოჯახო" პროფილებს, ავთენტიკაციას, ტურების დეტალურ აღწერასა და სიახლეების გამოწერას. პროექტი ფოკუსირებულია მომხმარებლისთვის მარტივ ნავიგაციასა და SEO-ზე.',
+    description_en: 'Multilingual travel planning platform: activity & tour discovery, "family" profiles, authentication, tour detail pages and newsletter. Focused on intuitive navigation and SEO structure.',
+    stack: ['i18n','Auth','Trip Planner','Tours','Profiles','Newsletter','SEO'],
+    live: 'https://pmt.ge/',
+    repo: '#',
+    screenshot: 'assets/screenshots/pmt.png'
   },
   {
     title: 'xcaucasus (xcaucasus.ge)',
@@ -85,7 +111,7 @@ const PROJECTS = [
     status: 'დასრულებულია',
     status_en: 'Completed',
     description: 'ჩემ მიერ შექმნილი WordPress საიტი პარაგლაიდინგის კლუბისთვის, რომელიც მოიცავს: ფრენის ლოკაციებს, სწავლებას, ბლოგს, გალერეასა და მრავალენოვან მხარდაჭერას (KA/EN). ამ პროექტმა მომცა მცირე, მაგრამ პრაქტიკული გამოცდილება WordPress-ის მიმართულებით: თემების კონფიგურაცია, SEO სტრუქტურის გაუმჯობესება და საიტის წარმადობის ოპტიმიზაცია (სურათების კომპრესია, ქეშირება).',
-    description_en: 'WordPress website I built for a paragliding club: flight locations, training, blog, gallery and multilingual support (KA/EN). Gave me hands‑on WordPress practice: theme configuration, SEO structure improvements, performance optimization (image compression, caching).',
+    description_en: 'WordPress website I built for a paragliding club: flight locations, training, blog, gallery and multilingual support (KA/EN). Gave me hands-on WordPress practice: theme configuration, SEO structure improvements, performance optimization (image compression, caching).',
     stack: ['WordPress','PHP','SEO','Optimization','Multilingual'],
     live: 'https://xcaucasus.ge/',
     repo: '#',
@@ -98,7 +124,7 @@ const PROJECTS = [
     status: 'დასრულებულია',
     status_en: 'Completed',
     description: 'სტატიკური, მაღალი წარმადობის მრავალენოვანი (KA/EN/RU) Next.js ვებსაიტი, რომელიც შექმნილია 360° ტურებისა და პროფესიონალური ფოტო/ვიდეო სერვისებისთვის. საიტი სრულად ოპტიმიზირებულია SEO-სთვის (სემანტიკური სტრუქტურა, Meta/OG თეგები, სწრაფი LCP). მთავარი აქცენტებია: სიჩქარე, საძიებო სისტემებში კარგი ინდექსაცია და კონვერსიაზე ორიენტირებული დიზაინი.',
-    description_en: 'Static, high‑performance multilingual (KA/EN/RU) Next.js website for 360° tours and professional photo/video services. Fully SEO‑optimized (semantic structure, Meta/OG tags, fast LCP). Emphasis on speed, search index quality and conversion‑oriented layout.',
+    description_en: 'Static, high-performance multilingual (KA/EN/RU) Next.js website for 360 tours and professional photo/video services. Fully SEO-optimized (semantic structure, Meta/OG tags, fast LCP). Emphasis on speed, search index quality and conversion-oriented layout.',
     stack: ['Next.js','React','TypeScript','Static Export','SEO','Image Optimization'],
     live: 'https://video360photo.ge/',
     repo: '#',
@@ -106,8 +132,8 @@ const PROJECTS = [
   },
   {
     title: 'projextx',
-    year: 2025,
-    type: 'E‑Commerce',
+    year: null,
+    type: 'E-Commerce',
     status: 'ბექენდის ინტეგრაციის მოლოდინში',
     status_en: 'Awaiting Backend Integration',
     description: 'React/Next.js-ზე შექმნილი e-commerce ფრონტენდი, რომელიც მოიცავს: პროდუქტების კატალოგს, დეტალურ გვერდებს, კალათას, ავთენტიკაციის UI-სა და შეკვეთის გაფორმების პროცესს. ფრონტენდის ნაწილი დასრულებულია და მზადაა API ინტეგრაციისთვის (REST ან GraphQL).',
@@ -116,43 +142,6 @@ const PROJECTS = [
     live: 'https://projextx.vercel.app/',
     repo: '#',
     screenshot: 'assets/screenshots/ecomerce.png'
-  },
-  {
-    title: 'Plan My Trip (pmt.ge)',
-    year: 2025,
-    type: 'Platform',
-    status: 'საჩუქრად მიღებული პროექტი',
-    status_en: 'Gifted Project',
-    description: 'მრავალენოვანი პლატფორმა მოგზაურობის დასაგეგმად, რომელიც მომხმარებელს სთავაზობს: აქტივობებისა და ტურების ძიებას, „საოჯახო“ პროფილებს, ავთენტიკაციას, ტურების დეტალურ აღწერასა და სიახლეების გამოწერას. პროექტი ფოკუსირებულია მომხმარებლისთვის მარტივ ნავიგაციასა და SEO-ზე.',
-    description_en: 'Multilingual travel planning platform: activity & tour discovery, "family" profiles, authentication, tour detail pages and newsletter. Focused on intuitive navigation and SEO structure.',
-    stack: ['i18n','Auth','Trip Planner','Tours','Profiles','Newsletter','SEO'],
-    live: 'https://pmt.ge/',
-    repo: '#',
-    screenshot: 'assets/screenshots/pmt.png'
-  },
-  {
-    title: 'Coming Soon Project',
-    year: 2025,
-    type: 'MVP',
-    description: 'შენი შემდეგი პროექტის ადგილი. მოგვაწოდე დეტალები და დავამატებთ ბარათად.',
-    description_en: 'Slot for your next project. Provide details and it will appear here.',
-    stack: ['React','API','Performance'],
-    live: '#',
-    repo: '#',
-    screenshot: 'https://image.thum.io/get/width/900/crop/1200/https://example.com/'
-  }
-  ,{
-    title: 'Personal Portfolio',
-    year: 2025,
-    type: 'Showcase',
-    status: 'დასრულებულია',
-    status_en: 'Completed',
-    description: 'ეს პორტფოლიო, რომელიც ხელით ავაწყვე სუფთა HTML, CSS და Vanilla JS სტეკზე. მოიცავს: თემის ცვლას (dark/light), მრავალენოვან ინტერფეისს (KA/EN), პროექტების დინამიურ რენდერს, IntersectionObserver ანიმაციებსა და lazy-loaded ფოტოებს. მთავარი ფოკუსი მინიმალიზმზე, წარმადობასა და კოდის მარტივ გაფართოებაზეა.',
-    description_en: 'This portfolio, which I hand-coded using a pure HTML, CSS, and Vanilla JS stack. It includes: a theme switcher (dark/light), a multilingual interface (KA/EN), dynamic project rendering, IntersectionObserver animations, and lazy-loaded photos. The main focus is on minimalism, performance, and code extensibility.',
-    stack: ['HTML','CSS','Vanilla JS','i18n','Accessibility'],
-    live: '#',
-    repo: 'https://github.com/lipo541/portfolio',
-    screenshot: ''
   }
 ];
 
@@ -164,26 +153,57 @@ const els = {
 
 function renderYear() { els.year.textContent = new Date().getFullYear(); }
 
+const DESC_CHAR_LIMIT = 150;
+
 function createProjectCard(p) {
   const card = document.createElement('article');
   card.className = 'project-card';
   const statusText = currentLang === 'en' ? (p.status_en || p.status || '') : (p.status || '');
   const statusBadge = statusText ? `<span class="status-badge" data-status="${statusText}">${statusText}</span>` : '';
+  const fullDesc = currentLang === 'en' ? (p.description_en || p.description) : p.description;
+  const needsTruncate = fullDesc.length > DESC_CHAR_LIMIT;
+  const truncatedDesc = needsTruncate ? fullDesc.slice(0, DESC_CHAR_LIMIT) + '...' : fullDesc;
+  const readMoreText = currentLang === 'en' ? 'Read more' : 'წაიკითხე მეტი';
+  const collapseText = currentLang === 'en' ? 'Collapse' : 'დამალვა';
+  const yearDisplay = p.year ? `${p.year} · ` : '';
+  
   card.innerHTML = `
     ${p.screenshot ? `
     <div class="project-thumb">
       <div class="thumb-skeleton" aria-hidden="true"></div>
       <img class="thumb-img lazy-img" data-src="${p.screenshot}" alt="${p.title} screenshot" decoding="async" loading="lazy" />
     </div>` : ''}
-    <div class="project-meta">${p.year} · ${p.type} ${statusBadge}</div>
+    <div class="project-meta">${yearDisplay}${p.type} ${statusBadge}</div>
     <h3>${p.title}</h3>
-    <p class="project-desc">${currentLang === 'en' ? (p.description_en || p.description) : p.description}</p>
+    <div class="project-desc-wrapper">
+      <p class="project-desc" data-full="${encodeURIComponent(fullDesc)}" data-truncated="${encodeURIComponent(truncatedDesc)}">${truncatedDesc}</p>
+      ${needsTruncate ? `<button class="read-more-btn" data-expanded="false" data-read-more="${readMoreText}" data-collapse="${collapseText}">${readMoreText}</button>` : ''}
+    </div>
     <ul class="project-tags">${p.stack.map(t => `<li>${t}</li>`).join('')}</ul>
     <div class="project-links">
       ${p.live && p.live !== '#' ? `<a href="${p.live}" class="live" target="_blank" rel="noopener" aria-label="Live demo: ${p.title}">Live</a>` : ''}
       ${p.repo && p.repo !== '#' ? `<a href="${p.repo}" class="repo" target="_blank" rel="noopener" aria-label="Source code: ${p.title}">Code</a>` : ''}
     </div>
   `;
+  
+  // Add read more/collapse functionality
+  const readMoreBtn = card.querySelector('.read-more-btn');
+  if (readMoreBtn) {
+    readMoreBtn.addEventListener('click', () => {
+      const descEl = card.querySelector('.project-desc');
+      const isExpanded = readMoreBtn.getAttribute('data-expanded') === 'true';
+      if (isExpanded) {
+        descEl.textContent = decodeURIComponent(descEl.getAttribute('data-truncated'));
+        readMoreBtn.textContent = readMoreBtn.getAttribute('data-read-more');
+        readMoreBtn.setAttribute('data-expanded', 'false');
+      } else {
+        descEl.textContent = decodeURIComponent(descEl.getAttribute('data-full'));
+        readMoreBtn.textContent = readMoreBtn.getAttribute('data-collapse');
+        readMoreBtn.setAttribute('data-expanded', 'true');
+      }
+    });
+  }
+  
   return card;
 }
 
